@@ -1,4 +1,5 @@
 @file:Suppress("UNUSED_PARAMETER")
+
 package lesson1.task1
 
 import kotlin.math.*
@@ -48,8 +49,8 @@ fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
  * Пример главной функции
  */
 fun main(args: Array<String>) {
-    val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
-    println("Root product: $x1x2")
+    val z = thirdDigit(3801)
+    println(z)
 }
 
 /**
@@ -58,7 +59,9 @@ fun main(args: Array<String>) {
  * Пользователь задает время в часах, минутах и секундах, например, 8:20:35.
  * Рассчитать время в секундах, прошедшее с начала суток (30035 в данном случае).
  */
-fun seconds(hours: Int, minutes: Int, seconds: Int): Int = TODO()
+fun seconds(hours: Int, minutes: Int, seconds: Int): Int {
+    return hours * 3600 + minutes * 60 + seconds
+}
 
 /**
  * Тривиальная
@@ -75,7 +78,9 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
  * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
-fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
+fun angleInRadian(deg: Int, min: Int, sec: Int): Double {
+    return ((deg + (min.toDouble() / 60) + (sec.toDouble() / 3600)) * PI) / 180
+}
 
 /**
  * Тривиальная
@@ -91,7 +96,9 @@ fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = TODO()
  * Пользователь задает целое число, большее 100 (например, 3801).
  * Определить третью цифру справа в этом числе (в данном случае 8).
  */
-fun thirdDigit(number: Int): Int = TODO()
+fun thirdDigit(number: Int): Int {
+    return (number / 100)%10
+}
 
 /**
  * Простая
@@ -117,4 +124,10 @@ fun accountInThreeYears(initial: Int, percent: Int): Double = TODO()
  * Пользователь задает целое трехзначное число (например, 478).
  * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
  */
-fun numberRevert(number: Int): Int = TODO()
+fun numberRevert(number: Int): Int {
+    val a = number % 10
+    val b = number % 100
+    val c = number / 100
+
+    return a*100 + (b-a) + c
+}
