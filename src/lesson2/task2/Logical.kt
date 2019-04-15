@@ -1,4 +1,5 @@
 @file:Suppress("UNUSED_PARAMETER")
+
 package lesson2.task2
 
 import lesson1.task1.sqr
@@ -17,7 +18,17 @@ fun pointInsideCircle(x: Double, y: Double, x0: Double, y0: Double, r: Double) =
  * Четырехзначное число назовем счастливым, если сумма первых двух ее цифр равна сумме двух последних.
  * Определить, счастливое ли заданное число, вернуть true, если это так.
  */
-fun isNumberHappy(number: Int): Boolean = TODO()
+fun isNumberHappy(number: Int): Boolean {
+    val d: Int = number % 10
+    val c: Int = (number % 100 - d) / 10
+    val b: Int = (number % 1000 - c - d) / 100
+    val a: Int = number / 1000
+    return ((a + b) == (c + d))
+}
+
+fun main(args: Array<String>) {
+    println(brickPasses(2, 10, 5, 6, 3))
+}
 
 /**
  * Простая
@@ -56,4 +67,16 @@ fun circleInside(x1: Double, y1: Double, r1: Double,
  * кирпич 4 х 4 х 4 пройдёт через отверстие 4 х 4.
  * Вернуть true, если кирпич пройдёт
  */
-fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean = TODO()
+fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean {
+    val size = arrayOf<Int>(a, b, c)
+    for (i in size) {
+        if (r >= i) {
+            for (j in size) {
+                if (s >= j) {
+                    return true
+                }
+            }
+        }
+    }
+    return false
+}

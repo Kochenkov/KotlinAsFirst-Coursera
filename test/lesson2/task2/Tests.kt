@@ -3,6 +3,7 @@ package lesson2.task2
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
 
 class Tests {
     @Test
@@ -17,9 +18,10 @@ class Tests {
     @Test
     @Tag("Easy")
     fun isNumberHappy() {
-        assertTrue(isNumberHappy(1533))
-        assertTrue(isNumberHappy(9009))
-        assertFalse(isNumberHappy(3644))
+        assertEquals(true,isNumberHappy(1533))
+        assertEquals(true,isNumberHappy(9009))
+        assertEquals(false,isNumberHappy(3644))
+
     }
 
     @Test
@@ -60,9 +62,9 @@ class Tests {
     @Test
     @Tag("Normal")
     fun brickPasses() {
-        assertTrue(brickPasses(2, 10, 5, 6, 3))
-        assertTrue(brickPasses(4, 4, 4, 4, 4))
-        assertFalse(brickPasses(6, 5, 4, 3, 6))
-        assertTrue(brickPasses(3, 2, 1, 1, 2))
+        assertEquals(true,brickPasses(2, 10, 5, 6, 3))
+        assertEquals(true,brickPasses(4, 4, 4, 4, 4))
+        assertEquals(false,brickPasses(6, 5, 4, 3, 6))
+        assertEquals(true,brickPasses(3, 2, 1, 1, 2))
     }
 }
