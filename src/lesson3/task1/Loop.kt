@@ -1,4 +1,5 @@
 @file:Suppress("UNUSED_PARAMETER")
+
 package lesson3.task1
 
 import kotlin.math.sqrt
@@ -38,7 +39,7 @@ fun isPrime(n: Int): Boolean {
  */
 fun isPerfect(n: Int): Boolean {
     var sum = 1
-    for (m in 2..n/2) {
+    for (m in 2..n / 2) {
         if (n % m > 0) continue
         sum += m
         if (sum > n) break
@@ -191,7 +192,78 @@ fun hasDifferentDigits(n: Int): Boolean = TODO()
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun squareSequenceDigit(n: Int): Int = TODO()
+
+// реализация состроками
+//fun squareSequenceDigit(n: Int): Int {
+//    var iterator: Int = 1
+//    var iteratorInner: Int = 0
+//    var res: String = ""
+//    var number: Int = 0
+//    var square: Int = 0
+//    while (iterator<=n) {
+//        number++
+//        square = number*number
+//        res=res+square
+//        for (i in res) {
+//            iteratorInner++
+//            if (iteratorInner == n) return i.toString().toInt()
+//        }
+//        iteratorInner = 0
+//        iterator++
+//    }
+//    return 1
+//}
+
+
+fun squareSequenceDigit(n: Int): Int {
+    var iterator: Int = 0
+    var amount: Int = 0
+    var number: Int = 0
+    var square: Int
+    while (iterator <= n) {
+        iterator++
+        number++
+        square = number * number
+        val value: Int = digitalValue(square)
+        amount = amount + value
+        if (amount < n) continue
+        else if (amount == n) return square % 10
+        else {
+            while (amount > n) {
+                amount--
+                square = square / 10
+            }
+            return square % 10
+        }
+    }
+
+
+
+
+    return 1
+}
+
+
+fun digitalValue(n: Int): Int {
+    var count = 0
+    var i = n
+    if (n == 0) return 1
+    else {
+        while (i > 0) {
+            i = i / 10
+            count++
+        }
+        return count
+    }
+
+}
+
+fun main(args: Array<String>) {
+//    var a =  squareSequenceDigit(2)
+//    println(a)
+
+
+}
 
 /**
  * Сложная

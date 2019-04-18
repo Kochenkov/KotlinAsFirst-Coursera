@@ -27,7 +27,9 @@ fun isNumberHappy(number: Int): Boolean {
 }
 
 fun main(args: Array<String>) {
-    println(brickPasses(2, 10, 5, 6, 3))
+//    println(brickPasses(2, 10, 5, 6, 3))
+    //функция определеющая количествознаковв числе:
+
 }
 
 /**

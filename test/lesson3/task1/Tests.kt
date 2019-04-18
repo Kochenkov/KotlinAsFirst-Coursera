@@ -231,6 +231,17 @@ class Tests {
         assertEquals(9, squareSequenceDigit(27))
     }
 
+
+    @Test
+    fun digitalValue() {
+        assertEquals(2,digitalValue(10))
+        assertEquals(3,digitalValue(100))
+        assertEquals(3,digitalValue(999))
+        assertEquals(1,digitalValue(0))
+        assertEquals(1,digitalValue(1))
+    }
+
+
     @Test
     @Tag("Hard")
     fun fibSequenceDigit() {
